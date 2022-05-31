@@ -22,6 +22,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('socialnetwork.urls', namespace='socialnetwork')),
+    path('', include('comments.urls', namespace='comments')),
+    path('', include('users.urls', namespace='users')),
     path('ckeditor/',include('ckeditor_uploader.urls')),
     #path('api/', include('socialnetwork.api.urls', namespace='api')),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

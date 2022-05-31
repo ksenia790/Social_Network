@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # my apps
     'socialnetwork',
-    'comments',
+    'users',
     # third party apps
 ]
 

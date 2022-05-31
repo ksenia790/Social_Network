@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from comments.forms import CommentForm
-from comment.models import Comment
+from comments.models import Comment
 
 
 def post_list(request):
@@ -46,4 +46,4 @@ def reply_page(request):
             reply.children = Comment(id=parent_id)
             reply.save()
             return redirect(post_url+'#'+str(reply.id))
-     return redirect("/")
+    return redirect("")

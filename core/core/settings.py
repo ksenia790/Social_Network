@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # my apps
     'socialnetwork',
+    'comments',
+    # third party apps
 ]
 
 MIDDLEWARE = [

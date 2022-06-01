@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from rest_framework.response import Response
 from rest_framework import generics, views
 from rest_framework import mixins
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.authtoken import views as auth_views
 from rest_framework.authtoken.models import Token
 from rest_framework import status
@@ -10,8 +10,10 @@ from . import serializers
 from rest_framework.generics import RetrieveAPIView
 
 
+
 class GetToken(RetrieveAPIView):
     serializer_class = serializers.TokenSerializer
+    permission_classes = [IsAuthenticated]
     def get(self, request, id):
         token = Token.objects.get(user_id=id)
         return Response({"token": token.key})

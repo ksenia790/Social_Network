@@ -18,6 +18,8 @@ class Post(models.Model):
     author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='blog_posts')
     body = RichTextUploadingField()
     image = models.ImageField(upload_to='featured_image')
+    likes = models.ManyToManyField(User, related_name='likes', blank=True)
+    dislikes = models.ManyToManyField(User, related_name='dislikes', blank=True)
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -32,8 +34,15 @@ class Post(models.Model):
     objects = models.Manager() 
     published = PublishedManager()
 
+    def total_likes(self):
+        return self.likes.count()
+
+    def total_dislikes(self):
+        return self.dislikes.count()
+
     def get_absolute_url(self):
         return reverse('socialnetwork:post_detail',args=[self.slug])
+
 
 class CommentManager(models.Manager):
     def all(self):

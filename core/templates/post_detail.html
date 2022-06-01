@@ -16,25 +16,32 @@
             {{ post.body|safe }}
         </div>
     </article>
-<hr/>
-        <h3>Add Comment</h3>
-        <form method="post" action="">
+    {% if user.is_authenticated %}
+        <form action="{% url 'socialnetwork:like_post' %}" method="post">
             {% csrf_token %}
-            {{ comment_form.as_p }}
-            <button type="submit" class="btn btn-primary">Comment</button>
-        </form>
-    
-        {% with comments.count as total_comments %}
-            <h3 class="mt-5">
-                {{ total_comments }} comment{{ total_comments|pluralize }}
-            </h3>
-        {% endwith %}
-        {% if not socialnetwork.comments.all %}
-            No comments yet
+                <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary btn-sm">{{total_likes}} Like</button>
+                <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-danger btn-sm">{{total_dislikes}} Dislike</button>
+            </form>
+<hr/>
         
-        {% else %}
-            {% for comment in socialnetwork.get_comments %}
-                {% include 'comment.html' with comment=comment %}
-            {% endfor %}
-        {% endif %}
+            <h3>Add Comment</h3>
+            <form method="post" action="">
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <button type="submit" class="btn btn-primary">Comment</button>
+            </form>
+    
+           {% with comments.count as total_comments %}
+                <h3 class="mt-5">
+                    {{ total_comments }} comment{{ total_comments|pluralize }}
+                </h3>
+            {% endwith %}
+            {% if not post.comments.all %}
+                No comments yet
+            {% else %}
+                {% for comment in post.comments.all %}
+                    {% include 'comment.html' with comment=comment %}
+                {% endfor %}
+            {% endif %}
+    {% endif %}
 {% endblock content %}

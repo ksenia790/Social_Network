@@ -32,7 +32,7 @@ def user_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect('')
+            return HttpResponseRedirect('/')
         else:
             return HttpResponse("Invalid login details supplied.")
     else:
@@ -42,4 +42,4 @@ def user_login(request):
 @login_required
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect('')
+    return HttpResponseRedirect('/')

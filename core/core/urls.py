@@ -26,5 +26,5 @@ urlpatterns = [
     path('users/', include('users.urls', namespace='users')),
     path('ckeditor/',include('ckeditor_uploader.urls')),
     path('api/', include('socialnetwork.api.urls', namespace='postapi')),
-    #path('api/', include('users.api.urls', namespace='usersapi')),
+    path('api/', include('users.api.urls', namespace='usersapi')),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

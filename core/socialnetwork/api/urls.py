@@ -7,7 +7,7 @@ from .views import (
     CommentListAPIView,
     CommentCreateAPIView,
     )
-#from . import views
+
 
 app_name = 'socialnetwork' 
 

@@ -98,16 +98,7 @@ class PostDetailSerializer(ModelSerializer):
     """
     class Meta:
         model = Post
-        fields = [
-            'id',
-            'title',
-            'slug',
-            'author',
-            'body',
-            'publish',
-            'likes',
-            'dislikes',
-        ]
+        fields = '__all__'
 
 
 class PostListSerializer(ModelSerializer):

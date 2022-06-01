@@ -23,7 +23,8 @@ from socialnetwork import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('socialnetwork.urls', namespace='socialnetwork')),
-    path('', include('users.urls', namespace='users')),
+    path('users/', include('users.urls', namespace='users')),
     path('ckeditor/',include('ckeditor_uploader.urls')),
-    #path('api/', include('socialnetwork.api.urls', namespace='api')),
+    path('api/', include('socialnetwork.api.urls', namespace='postapi')),
+    #path('api/', include('users.api.urls', namespace='usersapi')),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

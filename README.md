@@ -1,4 +1,4 @@
-<h1 align='center'>Social Network With RESST API</h1>
+<h1 align='center'>Social Network With REST API</h1>
 <p> In this project I had implemented a REST API for the social network with comment system and rating posts options. 
 Technologies i've used: Python, Djando and Django REST frameworks, for saving data - PostgreSQL database. 
 Methods were implemented: </p>
@@ -30,7 +30,7 @@ Follow API DOCUMENTATION below.
 
 <h2 align='center'>API DOCUMENTATION<h2>
 
-## Avalible API methods for blog posts:
+## Avalible API methods for posts:
 
 **GET** ` /api/posts/ ` - Retrieve All Published Posts
  <br>
@@ -41,7 +41,7 @@ Follow API DOCUMENTATION below.
 **POST** ` /api/posts/<slug>/create_comment/ ` - Creating Comment for a Particular Post(chosen by slug), or answer on one of parents comment
 <br>
   
-## Avalible API methods for blog comments:
+## Avalible API methods for comments:
 
 **GET** ` /api/comments/ ` - Retrieve All Comments
  <br>

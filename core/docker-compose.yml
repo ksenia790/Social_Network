@@ -1,0 +1,24 @@
+web:
+  build: .
+  environment:
+    MYENV: ENV
+  volumes:
+    - .:/code
+web_migrate:
+  extends:
+    service: web
+  command: python manage.py migrate
+web_run:
+  extends:
+    service: web
+  command: python manage.py runserver 0.0.0.0:8000
+  ports:
+    - "8000:8000"
+database:
+    container_name: postgres
+    image: postgres:latest
+    volumes:
+      - db_volume:/var/lib/postgresql
+
+volumes:
+  db_volume:

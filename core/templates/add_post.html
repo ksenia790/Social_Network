@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Creat a New blog post! {% endblock title %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+	<h1>Add post...</h1>
+	<br>
+	<div>
+		<form method="POST">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<button class="btn btn-secondary" type="submit">Post</button>
+		</form>
+	</div>
+{% else %}
+Allowed only for registered users!
+
+{% endif %}
+
+{% endblock content %}

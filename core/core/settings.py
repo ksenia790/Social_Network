@@ -94,7 +94,7 @@ DATABASES = {
         'NAME': 'networkdb', 
         'USER': 'postgres', 
         'PASSWORD': 'sena',
-        'HOST': 'db', 
+        'HOST': '127.0.0.1', #change to db
         'PORT': '5432',
     }
 }

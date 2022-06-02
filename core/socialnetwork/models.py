@@ -20,10 +20,10 @@ class Post(models.Model):
     image = models.ImageField(upload_to='featured_image')
     likes = models.ManyToManyField(User, related_name='likes', blank=True)
     dislikes = models.ManyToManyField(User, related_name='dislikes', blank=True)
-    publish = models.DateTimeField(default=timezone.now)
+    publish = models.DateTimeField(default=timezone.now, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=10,choices=STATUS_CHOICES,default='draft')
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
 
     class Meta:
         ordering = ('-publish',)
@@ -41,7 +41,7 @@ class Post(models.Model):
         return self.dislikes.count()
 
     def get_absolute_url(self):
-        return reverse('socialnetwork:post_detail',args=[self.slug])
+        return reverse('socialnetwork:post_detail',args=[self.id]) #slug
 
 
 class CommentManager(models.Manager):

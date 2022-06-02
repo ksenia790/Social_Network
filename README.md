@@ -22,9 +22,15 @@ Once you've cloned the project navigate to the root directory of the project. Ru
 
 The docker-compose command will build the images from dockerfile and docker-compose.yml file. This will create ports, links between containers, and configure applications as requrired. 
 
+2. `docker-compose exec web python manage.py migrate` - run the migrations
+
+3. `docker-compose exec web python manage.py createsuperuser` - create superuser
+
 Run the web-server:
 
-2. ` docker-compose run web_run `
+4. ` docker-compose run web `
+
+Enter the admin panel and create a new post.
 
 Follow API DOCUMENTATION below.
 

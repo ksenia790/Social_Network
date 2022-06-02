@@ -5,12 +5,11 @@ from .models import Comment, Post
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'slug', 'author', 'body', 'image', 'status']
+        fields = ['title', 'author', 'body', 'image', 'status']
 
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)
         self.fields['title'].widget.attrs = {'placeholder': 'Enter the title','class':'form-control'}
-        self.fields['slug'].widget.attrs = {'class':'form-control'}
         self.fields['author'].widget.attrs = {'class':'form-control'}
         self.fields['body'].widget.attrs = {'placeholder': 'Write your post here...', 'class':'form-control', 'rows':'5'}
         self.fields['image'].widget.attrs = {'class':'form-control'}

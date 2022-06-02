@@ -6,7 +6,7 @@ app_name = 'socialnetwork'
 
 urlpatterns=[
     path('', views.post_list, name="post_list"),
-    path('add_post/', views.create_post, name="add_post"),
+    path('add_post/', views.CreatePost.as_view(), name="add_post"),
     path('like/', views.like_post, name="like_post"),
     path('logout/', user_logout, name='logout'),
     path('<slug:post>/', views.post_detail, name="post_detail"),

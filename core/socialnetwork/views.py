@@ -5,24 +5,23 @@ from django.views.generic import CreateView
 from django.http import HttpResponseRedirect
 
 
-def create_post(request):
-    form = PostForm()
-    if request.method == "POST":
-        form = PostForm(request.POST or None)
-        if form.is_valid():
-            data = form.save(commit=False)
-            data.slug = slugify(post.title)
-            data.user = request.username
-            data.save()
-            return redirect("/")
-    return render(request, "add_post.html", {"form": form})
+#def create_post(request):
+#    form = PostForm()
+#    if request.method == "POST":
+#        form = PostForm(request.POST or None)
+#        if form.is_valid():
+#            data = form.save(commit=False)
+#            data.slug = slugify(post.title)
+#            data.user = request.username
+#            data.save()
+#            return redirect("/")
+#    return render(request, "add_post.html", {"form": form})
 
 
-#class CreatePost(CreateView):
- #   model = Post
-  #  template_name = 'add_post.html'
-   # fields = '__all__'
-    #fields = ['title', 'slug', 'author', 'body', 'image', 'status']
+class CreatePost(CreateView):
+    model = Post
+    template_name = 'add_post.html'
+    fields = ['title', 'author', 'body', 'image', 'status']
 
 
 def post_list(request):

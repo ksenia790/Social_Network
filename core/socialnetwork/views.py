@@ -5,19 +5,6 @@ from django.views.generic import CreateView
 from django.http import HttpResponseRedirect
 
 
-#def create_post(request):
-#    form = PostForm()
-#    if request.method == "POST":
-#        form = PostForm(request.POST or None)
-#        if form.is_valid():
-#            data = form.save(commit=False)
-#            data.slug = slugify(post.title)
-#            data.user = request.username
-#            data.save()
-#            return redirect("/")
-#    return render(request, "add_post.html", {"form": form})
-
-
 class CreatePost(CreateView):
     model = Post
     template_name = 'add_post.html'
@@ -51,7 +38,7 @@ def post_detail(request, post):
             new_comment = comment_form.save(commit=False)
             new_comment.post = post
             new_comment.save()
-            return redirect(post.get_absolute_url()) #+'#'+str(new_comment.id))
+            return redirect(post.get_absolute_url() +'#'+ str(new_comment.id))
         else:
             comment_form = CommentForm()
     return render(request, 'post_detail.html',{'post':post,'comments':comments,'comment_form':comment_form, "is_liked": is_liked, "total_likes": post.total_likes(), "total_dislikes": post.total_dislikes()})

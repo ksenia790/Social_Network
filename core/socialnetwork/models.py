@@ -41,7 +41,7 @@ class Post(models.Model):
         return self.dislikes.count()
 
     def get_absolute_url(self):
-        return reverse('socialnetwork:post_detail',args=[self.id]) #slug
+        return reverse('socialnetwork:post_detail',args=[self.slug]) #slug
 
 
 class CommentManager(models.Manager):

@@ -11,11 +11,12 @@ Methods were implemented: </p>
   <li>API method to get all registered users or create a new one;</li>
   <li>And last but not least - API method to get token for registered user.</li>
 </ul>
+
 <h2 align='center'>Fast start with Docker-compose</h2>
 This instractions assume that you have already installed Docker and Docker Compose.
 In order to get started be sure to clone this project.
 
-## How to get up and running
+## How to get up and running with Docker and Docker-compose
 Once you've cloned the project navigate to the root directory of the project. Run the following commands from this directory:
 
 1. ` docker-compose up -d `
@@ -31,6 +32,22 @@ Run the web-server:
 4. ` docker-compose run web `
 
 Enter the admin panel and create a new post.
+<img src=https://user-images.githubusercontent.com/77285836/171625199-68feedd9-640d-4915-85da-ee9b10a2743a.gif width="800" height="400">
+
+5. Follow API DOCUMENTATION below.
+
+## How to run app without Docker: 
+1. Clone the project
+<br/>
+2. Edit ` settings.py ` accordin to your user-name and password from Postgres, and change "HOST" value from ` 'HOST': 'db' ` to `'HOST': '127.0.0.1'`
+<br/>
+3. Instal all requirements ` pip install -r requirements.txt `
+<br/>
+4. Run migrations `python manage.py migrate`
+<br/>
+5. Create superuser `python manage.py createsuperuser ` and provide username and  password
+<br/>
+6. Run the app ` python manage.py runserver `
 
 Follow API DOCUMENTATION below.
 

@@ -52,6 +52,9 @@ class CommentDetailSerializer(ModelSerializer):
 
 
 class CommentListSerializer(ModelSerializer):
+    """
+        Displays info about all comments to a particular post. 
+    """
     replies = SerializerMethodField()
     reply_count = SerializerMethodField()
     class Meta:

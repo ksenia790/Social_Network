@@ -1,4 +1,6 @@
 from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView
+from rest_framework.permissions import AllowAny, IsAuthenticated
+
 from .serializers import (
     PostListSerializer, 
     PostDetailSerializer, 
@@ -8,7 +10,7 @@ from .serializers import (
     CommentCreateSerializer,
     )
 from socialnetwork.models import Post, Comment
-from rest_framework.permissions import AllowAny, IsAuthenticated
+
 
 # Comments APIViews
 class CommentCreateAPIView(CreateAPIView):
